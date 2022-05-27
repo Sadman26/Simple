@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+body{
+    background-color: rgb(255, 255, 255);
+}
+.app{
+    background-color: deeppink;
+    text-align: center;
+    padding: 15px;
+    border-radius: 7px;
+}
+.app h1{
+    font-family: 'Open Sans', sans-serif;
+}
+.app input{
+    border-style: solid;
+    border-color: black;
+}

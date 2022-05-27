@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/91b44b9c3e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+            <h1>
+                <i class="fa-solid fa-skull"></i>
+                </h1>
+                <input type="text" name="name" id="name" placeholder="Enter Name" autocomplete="off">
+                <br>
+                <br>
+                <input type="password" name="password" id="password" placeholder="Enter Password" autocomplete="off">
+                <br>
+                <br>
+                <button id="btn">SAVE</button>
+    </div>
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+import {getDatabase,ref,set,child} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js"
+const firebaseConfig = {
+  apiKey: "AIzaSyD2ypvWMFuDYkXKiuweg9r5c_WMxeXHBgo",
+  authDomain: "python-2e3f5.firebaseapp.com",
+  databaseURL: "https://python-2e3f5-default-rtdb.firebaseio.com",
+  projectId: "python-2e3f5",
+  storageBucket: "python-2e3f5.appspot.com",
+  messagingSenderId: "714962167164",
+  appId: "1:714962167164:web:d01e3591308734daaf70f9",
+  measurementId: "G-DTM3V0SY0G"
+};
+const app = initializeApp(firebaseConfig);
+const db=getDatabase();
+var name=document.getElementById('name');
+var password=document.getElementById('password');
+var btn=document.getElementById('btn')
+function ajaira(){
+    set(ref(db,"Personal/"+name.value),{
+        NameofStd:name.value,
+        Pass:password.value
+    })
+    .then(()=>{
+        alert("Successful!");
+    })
+    .catch((error)=>{
+        alert(error);
+    })
+}
+btn.addEventListener('click',ajaira);
+    </script>
+</body>
+</html>
